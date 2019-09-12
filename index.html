@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>來吃飯</title>
+</head>
+<body>
+    <div>
+        <b-button size="sm" @click="random(0, menu.length)">
+            Random
+        </b-button>
+        {{ result }}!
+    </div>
+</body>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          menu: ["脆皮五花肉", "蜜汁雞腿", "香滷大雞腿", "香酥大雞腿", "日式親子丼", "宮保雞丁", "蔥爆牛肉", "冰鎮醉雞", "牛肉燴飯", "椒麻雞", "山豬肉"],
+          result: ""
+        }
+      },
+      methods: {
+        random(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          this.result = this.menu[Math.floor(Math.random() * (max - min)) + min] ; //不含最大值，含最小值
+        }
+      }
+    })
+</script>
+</html>
